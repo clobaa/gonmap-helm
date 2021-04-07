@@ -1,0 +1,29 @@
+name: Push Chart To Repo
+on:
+  push:
+    paths:
+    - 'chart/**'
+
+jobs:
+  push-chart-to-repo:
+    name: Update Chart Repo
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - name: Get Helm
+      run: curl -O https://get.helm.sh/helm-v3.5.2-linux-amd64.tar.gz
+    - name: Unpack Helm
+      run: tar -xzf helm-v3.5.2-linux-amd64.tar.gz
+    - name: Update chart repo with new chart
+      run: ./helm package chart -d docs
+    - name: Generate chart repo index
+      run: ./helm repo index docs --url https://clobaa.github.io/gonmap-helm
+    - name: Push changes to github
+      run: |
+           git status 
+           git add docs
+           git commit -m "Regenerate chart repo index"
+           git pull origin main --rebase
+           git push origin main

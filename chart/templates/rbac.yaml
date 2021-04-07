@@ -1,0 +1,31 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: gonmap
+rules:
+- apiGroups: 
+  - "mondo.github.io.clobaa"
+  - ""
+
+  resources: 
+  - "configmaps"
+  - "gonmaps"
+  verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
+- apiGroups: [""]
+  resources:
+  - "namespaces"
+  verbs: ["get", "watch", "list"]
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: gonmap
+subjects:
+- kind: ServiceAccount
+  name: {{ include "..serviceAccountName" . }}
+  namespace: "{{ .Release.Namespace }}"
+roleRef:
+  kind: ClusterRole
+  name: gonmap
+  apiGroup: rbac.authorization.k8s.io

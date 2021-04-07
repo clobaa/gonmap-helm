@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  gonmap:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-02-08T09:36:02.108299662+05:30"
+    description: A Helm chart for GonMap Global ConfigMap
+    digest: fd64619c0c1752928ae83116d22b725aff2dbba2585df12e1e33f23bede6839c
+    icon: https://raw.githubusercontent.com/clobaa/gonmap/main/logo.svg
+    name: gonmap
+    type: application
+    urls:
+    - https://clobaa.github.io/gonmap-helm/gonmap-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-02-08T09:36:02.107467533+05:30"
+    description: A Helm chart for Gonmap Global ConfigMap
+    digest: 006429502b81470378e78a08fc9f03bde6fc7fabdb73135bc3a003e649127949
+    name: gonmap
+    type: application
+    urls:
+    - https://clobaa.github.io/gonmap-helm/gonmap-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-02-08T09:36:02.099359067+05:30"
