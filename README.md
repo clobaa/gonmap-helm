@@ -1,6 +1,8 @@
 # GonMap Helm Chart
 **Note: Currently in Alpha**
 
+https://github.com/clobaa/gonmap/blob/main/logo.svg
+
 This repo holds the chart and helm repo for [GonMap](https://github.com/clobaa/gonmap).
 
 # Installation
